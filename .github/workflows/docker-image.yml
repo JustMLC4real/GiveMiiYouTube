@@ -9,13 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Check out code
+      uses: actions/checkout@v2
+      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: dweraw
-      run: docker run --rm -v ${PWD}:/project givemiiyoutube_builder make
+      
+    - name: Run make command in the Docker container
+      run: docker run --rm -v ${PWD}:/project my-image-name:$(date +%s) make
+
     - name: Upload bin Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
-       name: output
-       path: ./
+        name: output
+        path: ./
