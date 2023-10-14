@@ -10,16 +10,16 @@
 #include <patcher/rplinfo.h>
 #include <patcher/patcher.h>
 
-WUPS_PLUGIN_NAME("GiveMiiYouTube");
-WUPS_PLUGIN_DESCRIPTION("Allows the YouTube app to continue functioning after its discontinuation");
-WUPS_PLUGIN_VERSION("v2.0");
-WUPS_PLUGIN_AUTHOR("GaryOderNichts");
+WUPS_PLUGIN_NAME("GiveMiiNetflix");
+WUPS_PLUGIN_DESCRIPTION("Allows the Netflix app to (somewhat) continue functioning after its discontinuation");
+WUPS_PLUGIN_VERSION("v1.0");
+WUPS_PLUGIN_AUTHOR("JustMLC & GaryOderNichts");
 WUPS_PLUGIN_LICENSE("MIT");
 
-#define YOUTUBE_CLIENT_ID "e921a604fce89365498613fdf001b492"
-#define YOUTUBE_TITLE_ID 0x0005000010105700llu
-#define YOUTUBE_USERAGENT_PLATFORM "WiiU; "
-#define YOUTUBE_USERAGENT_PLATFORM_REPLACEMENT "NoU; "
+#define YOUTUBE_CLIENT_ID "8c9208db5c5449b64b2cbd6e0701e637"
+#define YOUTUBE_TITLE_ID 0x0005000010105a00llu
+/*#define YOUTUBE_USERAGENT_PLATFORM "WiiU; "
+#define YOUTUBE_USERAGENT_PLATFORM_REPLACEMENT "NoU; "*/
 
 ON_APPLICATION_START()
 {
@@ -57,14 +57,14 @@ ON_APPLICATION_START()
         return;
     }
 
-    // Patch the useragent platform
+    /*// Patch the useragent platform
     OSDynLoad_NotifyData rpx_data = *lb_shell_rpx;
     if (!replace_string(rpx_data.dataAddr, rpx_data.dataSize, 
         YOUTUBE_USERAGENT_PLATFORM, sizeof(YOUTUBE_USERAGENT_PLATFORM),
         YOUTUBE_USERAGENT_PLATFORM_REPLACEMENT, sizeof(YOUTUBE_USERAGENT_PLATFORM_REPLACEMENT))) {
         WHBLogPrintf("GiveMiiYouTube: Failed to replace useragent platform");
         return;
-    }
+    }*/
 }
 
 DECL_FUNCTION(int, AcquireIndependentServiceToken__Q2_2nn3actFPcPCc, uint8_t* token, const char* client_id)
