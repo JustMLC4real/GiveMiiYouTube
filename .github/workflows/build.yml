@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . -t givemiiyoutube_builder
-    - name: make
-    - run: docker run -it --rm -v ${PWD}:/project givemiiyoutube_builder make
+    - name: Run make
+      run: docker run -it --rm -v ${PWD}:/project givemiiyoutube_builder make
     - name: Upload bin Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
