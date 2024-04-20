@@ -16,7 +16,7 @@ WUPS_PLUGIN_VERSION("v1.0");
 WUPS_PLUGIN_AUTHOR("JustMLC & GaryOderNichts");
 WUPS_PLUGIN_LICENSE("MIT");
 
-#define YOUTUBE_CLIENT_ID "8c9208db5c5449b64b2cbd6e0701e637"
+/* #define YOUTUBE_CLIENT_ID "8c9208db5c5449b64b2cbd6e0701e637" */
 #define YOUTUBE_TITLE_ID 0x000500001014CE00llu
 #define YOUTUBE_USERAGENT_PLATFORM "WiiU; "
 #define YOUTUBE_USERAGENT_PLATFORM_REPLACEMENT "NoU; "
@@ -67,7 +67,7 @@ ON_APPLICATION_START()
     }
 }
 
-DECL_FUNCTION(int, AcquireIndependentServiceToken__Q2_2nn3actFPcPCc, uint8_t* token, const char* client_id)
+/*DECL_FUNCTION(int, AcquireIndependentServiceToken__Q2_2nn3actFPcPCc, uint8_t* token, const char* client_id)
 {
     // If this is the YouTube client, return sucess
     if (client_id && strcmp(client_id, YOUTUBE_CLIENT_ID) == 0) {
@@ -76,6 +76,6 @@ DECL_FUNCTION(int, AcquireIndependentServiceToken__Q2_2nn3actFPcPCc, uint8_t* to
     }
 
     return real_AcquireIndependentServiceToken__Q2_2nn3actFPcPCc(token, client_id);
-}
+}*/
 
 WUPS_MUST_REPLACE(AcquireIndependentServiceToken__Q2_2nn3actFPcPCc, WUPS_LOADER_LIBRARY_NN_ACT, AcquireIndependentServiceToken__Q2_2nn3actFPcPCc);
